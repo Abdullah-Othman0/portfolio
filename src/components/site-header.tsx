@@ -60,7 +60,7 @@ export function SiteHeader() {
 
         <button
           aria-label="Toggle menu"
-          className="md:hidden text-on-surface"
+          className="md:hidden text-on-surface flex items-center justify-center w-11 h-11 -mr-2"
           onClick={() => setOpen((v) => !v)}
         >
           <span className="material-symbols-outlined">
@@ -71,13 +71,13 @@ export function SiteHeader() {
 
       {open && (
         <div className="md:hidden border-t border-white/10 bg-surface-dim/95 backdrop-blur-xl">
-          <div className="px-6 py-6 flex flex-col gap-4">
+          <div className="px-6 py-4 flex flex-col gap-1">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-base text-on-surface-variant hover:text-secondary transition-colors"
+                className="text-base text-on-surface-variant hover:text-secondary transition-colors py-2.5"
               >
                 {item.label}
               </Link>
@@ -85,7 +85,7 @@ export function SiteHeader() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="bg-primary text-on-primary text-center px-6 py-3 rounded-lg font-bold"
+              className="bg-primary text-on-primary text-center px-6 py-3 rounded-lg font-bold mt-3"
             >
               Hire Me
             </Link>

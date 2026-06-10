@@ -91,7 +91,7 @@ export function GalaxyJourney({ children }: { children?: React.ReactNode }) {
       className="relative pointer-events-none"
       style={{ height: `${JOURNEY_VH}vh` }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-0 h-dvh overflow-hidden">
         {/* Intro: fades out as the flight begins */}
         <div
           ref={introRef}
@@ -131,14 +131,14 @@ export function GalaxyJourney({ children }: { children?: React.ReactNode }) {
         {/* Flight rail: one stop per planet */}
         <nav
           aria-label="Jump to project"
-          className="absolute right-5 md:right-10 top-1/2 -translate-y-1/2 z-10 flex flex-col items-end gap-5 pointer-events-auto"
+          className="absolute right-1 md:right-10 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center md:items-end gap-1 md:gap-5 pointer-events-auto"
         >
           {PLANETS.map((pl, i) => (
             <button
               key={pl.title}
               type="button"
               onClick={() => jumpTo(i)}
-              className="group flex items-center gap-3 cursor-pointer"
+              className="group flex items-center justify-center md:justify-end gap-3 cursor-pointer w-11 h-11 md:w-auto md:h-auto"
               aria-label={`Fly to ${pl.title}`}
             >
               <span

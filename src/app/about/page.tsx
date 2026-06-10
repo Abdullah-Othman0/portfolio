@@ -63,10 +63,10 @@ export default function AboutPage() {
     <div className="pt-12 pb-32 px-4">
       <div className="max-w-container mx-auto glass-surface rounded-[32px] overflow-hidden">
         {/* Hero */}
-        <section className="px-6 md:px-16 py-24 mb-16">
+        <section className="px-6 md:px-16 py-12 md:py-24 mb-8 md:mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <h1 className="text-[40px] sm:text-6xl md:text-[72px] leading-[1.05] md:leading-[80px] font-extrabold tracking-[-0.04em] text-primary mb-8">
+              <h1 className="text-[clamp(2.5rem,8vw,4.5rem)] leading-[1.05] font-extrabold tracking-[-0.04em] text-primary mb-8">
                 Designing systems <br />
                 <span className="text-secondary">for reliability.</span>
               </h1>
@@ -103,8 +103,8 @@ export default function AboutPage() {
         </section>
 
         {/* Engineering Arsenal */}
-        <section className="px-6 md:px-16 mb-32">
-          <div className="text-center mb-16">
+        <section className="px-6 md:px-16 mb-20 md:mb-32">
+          <div className="text-center mb-10 md:mb-16">
             <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em] text-on-surface mb-4">
               Engineering Arsenal
             </h2>
@@ -113,8 +113,8 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
-            <div className="md:col-span-2 lg:col-span-3 glass-card p-8 rounded-xl transition-all duration-500">
-              <h3 className="text-3xl font-semibold text-primary mb-6 flex items-center gap-3">
+            <div className="md:col-span-2 lg:col-span-3 glass-card p-6 md:p-8 rounded-xl transition-all duration-500">
+              <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-6 flex items-center gap-3">
                 <Icon name="terminal" /> Languages
               </h3>
               <div className="space-y-6">
@@ -139,8 +139,8 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="md:col-span-2 lg:col-span-3 glass-card p-8 rounded-xl transition-all duration-500">
-              <h3 className="text-3xl font-semibold text-primary mb-6 flex items-center gap-3">
+            <div className="md:col-span-2 lg:col-span-3 glass-card p-6 md:p-8 rounded-xl transition-all duration-500">
+              <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-6 flex items-center gap-3">
                 <Icon name="layers" /> Ecosystem
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -173,8 +173,8 @@ export default function AboutPage() {
         </section>
 
         {/* Journey */}
-        <section className="px-6 md:px-16 mb-32">
-          <div className="text-center mb-16">
+        <section className="px-6 md:px-16 mb-20 md:mb-32">
+          <div className="text-center mb-10 md:mb-16">
             <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em] text-on-surface mb-4">
               Professional Journey
             </h2>
@@ -184,7 +184,7 @@ export default function AboutPage() {
           </div>
           <div className="relative">
             <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px timeline-line opacity-30" />
-            <div className="space-y-24">
+            <div className="space-y-16 md:space-y-24">
               {journey.map((j, i) => {
                 const reversed = i % 2 === 1;
                 return (
@@ -210,7 +210,7 @@ export default function AboutPage() {
                       </p>
                     </div>
                     <div className="z-10 w-4 h-4 rounded-full bg-secondary glow-sm border-4 border-background ring-4 ring-secondary/20" />
-                    <div className="md:hidden w-full text-center mt-6 px-6">
+                    <div className="md:hidden w-full text-center mt-6 px-2">
                       <h3 className="text-2xl font-semibold tracking-[-0.01em] text-on-surface">
                         {j.role}
                       </h3>
@@ -220,6 +220,14 @@ export default function AboutPage() {
                       <p className="text-on-surface-variant text-base">
                         {j.desc}
                       </p>
+                      <div className="glass-card p-5 rounded-xl mt-6 text-left">
+                        <code className="text-sm text-secondary block mb-2 font-[var(--font-jetbrains)]">
+                          {j.quoteLabel}
+                        </code>
+                        <p className="text-sm italic text-on-surface-variant font-[var(--font-jetbrains)]">
+                          &ldquo;{j.quote}&rdquo;
+                        </p>
+                      </div>
                     </div>
                     <div
                       className={`hidden md:block w-[45%] ${
@@ -249,8 +257,8 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="px-6 md:px-16 mb-24">
-          <div className="glass-card p-12 md:p-16 rounded-2xl text-center relative overflow-hidden group">
+        <section className="px-6 md:px-16 mb-12 md:mb-24">
+          <div className="glass-card p-8 sm:p-12 md:p-16 rounded-2xl text-center relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] text-on-surface mb-6">
               Looking for a technical partner?

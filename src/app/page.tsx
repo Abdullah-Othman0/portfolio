@@ -40,7 +40,7 @@ export default function HomePage() {
   return (
     <div className="relative">
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center px-6 md:px-16 overflow-hidden bg-transparent">
+      <section className="relative min-h-svh flex items-center px-6 md:px-16 overflow-hidden bg-transparent">
         {/* Subtle gradient to improve text legibility against the galaxy background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(11,19,38,0.8)_0%,transparent_70%)] pointer-events-none" />
         
@@ -51,7 +51,7 @@ export default function HomePage() {
               Available for new projects
             </span>
           </div>
-          <h1 className="text-[40px] sm:text-6xl md:text-[72px] leading-[1.05] md:leading-[80px] font-extrabold tracking-[-0.04em] mb-8 text-shadow-strong">
+          <h1 className="text-[clamp(2.5rem,8vw,4.5rem)] leading-[1.05] font-extrabold tracking-[-0.04em] mb-8 text-shadow-strong">
             <span className="block">Building digital products</span>
             <span className="gradient-text">that people actually use.</span>
           </h1>
@@ -60,7 +60,7 @@ export default function HomePage() {
             chat to e-commerce and multi-tenant platforms. 4+ years shipping
             production code for startups and small teams.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <Link
               href="/projects"
               className="bg-secondary-container text-on-secondary-container font-bold px-10 py-4 rounded-xl glow-button transition-transform active:scale-95 text-lg text-center"
@@ -96,9 +96,9 @@ export default function HomePage() {
       {/* Tech Stack */}
       <section
         id="skills"
-        className="max-w-container mx-auto px-6 md:px-16 py-32 scroll-mt-24 bg-transparent"
+        className="max-w-container mx-auto px-6 md:px-16 py-20 md:py-32 scroll-mt-24 bg-transparent"
       >
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-[-0.02em] text-on-surface mb-4 text-shadow-strong">
             Core Stack
           </h2>
@@ -138,15 +138,15 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden bg-transparent">
-        <div className="max-w-container mx-auto px-6 md:px-16 py-32 relative z-10">
-          <div className="glass-card rounded-3xl p-12 md:p-24 relative overflow-hidden text-center">
+        <div className="max-w-container mx-auto px-6 md:px-16 py-20 md:py-32 relative z-10">
+          <div className="glass-card rounded-3xl p-8 sm:p-12 md:p-24 relative overflow-hidden text-center">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-secondary/20 rounded-full blur-[100px]" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-[100px]" />
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] mb-8 text-shadow-strong">
               Need a system built to last?
             </h2>
-            <p className="text-lg text-on-surface-variant mb-12 text-shadow-strong">
+            <p className="text-lg text-on-surface-variant mb-8 md:mb-12 text-shadow-strong">
               I work with startups and teams that need reliable products, fast
               iteration, and clean engineering foundations. Available for
               freelance development and consulting engagements.

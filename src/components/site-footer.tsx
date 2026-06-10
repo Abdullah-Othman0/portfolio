@@ -1,6 +1,6 @@
 export function SiteFooter() {
   return (
-    <footer className="w-full py-24 border-t border-white/5 bg-surface-container-lowest">
+    <footer className="w-full py-12 md:py-24 border-t border-white/5 bg-surface-container-lowest">
       <div className="max-w-container mx-auto px-6 md:px-16 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-col gap-2 text-center md:text-left">
           <img 

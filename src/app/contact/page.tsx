@@ -25,7 +25,7 @@ export default function ContactPage() {
 
   return (
     <div className="pt-12 pb-32 px-4">
-      <div className="max-w-container mx-auto glass-surface rounded-[32px] overflow-hidden p-8 md:p-16">
+      <div className="max-w-container mx-auto glass-surface rounded-[32px] overflow-hidden p-5 sm:p-8 md:p-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Identity */}
           <div className="lg:col-span-5 flex flex-col justify-center">
@@ -33,7 +33,7 @@ export default function ContactPage() {
               <span className="text-xs uppercase tracking-[0.2em] text-secondary font-semibold font-[var(--font-jetbrains)] mb-4 block">
                 Available for freelance
               </span>
-              <h1 className="text-[40px] sm:text-6xl md:text-[72px] leading-[1.05] md:leading-[80px] font-extrabold tracking-[-0.04em] text-primary mb-6 [text-shadow:0_0_10px_rgba(173,198,255,0.3)]">
+              <h1 className="text-[clamp(2.5rem,8vw,4.5rem)] leading-[1.05] font-extrabold tracking-[-0.04em] text-primary mb-6 [text-shadow:0_0_10px_rgba(173,198,255,0.3)]">
                 Build Something Reliable.
               </h1>
               <p className="text-lg text-on-surface-variant max-w-md">
@@ -100,11 +100,11 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div className="lg:col-span-7 mt-16 lg:mt-0">
-            <div className="glass-card p-8 md:p-12 rounded-xl relative overflow-hidden">
+          <div className="lg:col-span-7 mt-6 lg:mt-0">
+            <div className="glass-card p-5 sm:p-8 md:p-12 rounded-xl relative overflow-hidden">
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full" />
-              <form onSubmit={onSubmit} className="relative z-10 space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <form onSubmit={onSubmit} className="relative z-10 space-y-6 md:space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                   <div>
                     <label htmlFor="name" className={labelClasses}>
                       Full Name
