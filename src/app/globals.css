@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0b1326;
+  --color-on-background: #dae2fd;
+  --color-surface: #0b1326;
+  --color-surface-dim: #0b1326;
+  --color-surface-bright: #31394d;
+  --color-surface-container-lowest: #060e20;
+  --color-surface-container-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-container-high: #222a3d;
+  --color-surface-container-highest: #2d3449;
+  --color-surface-variant: #2d3449;
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #c2c6d6;
+  --color-primary: #adc6ff;
+  --color-on-primary: #002e6a;
+  --color-primary-container: #4d8eff;
+  --color-on-primary-container: #00285d;
+  --color-secondary: #4cd7f6;
+  --color-on-secondary: #003640;
+  --color-secondary-container: #03b5d3;
+  --color-on-secondary-container: #00424e;
+  --color-tertiary: #c4c7c9;
+  --color-on-tertiary-fixed-variant: #444749;
+  --color-outline: #8c909f;
+  --color-outline-variant: #424754;
+  --color-error: #ffb4ab;
+
+  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --text-display: 72px;
+  --text-display--line-height: 80px;
+  --text-display--letter-spacing: -0.04em;
+  --text-display--font-weight: 800;
+
+  --text-headline-lg: 48px;
+  --text-headline-lg--line-height: 56px;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 700;
+
+  --text-headline-lg-mobile: 32px;
+  --text-headline-lg-mobile--line-height: 40px;
+  --text-headline-lg-mobile--letter-spacing: -0.02em;
+  --text-headline-lg-mobile--font-weight: 700;
+
+  --text-headline-md: 30px;
+  --text-headline-md--line-height: 36px;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+
+  --text-code-sm: 14px;
+  --text-code-sm--line-height: 20px;
+
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 16px;
+  --text-label-caps--letter-spacing: 0.1em;
+  --text-label-caps--font-weight: 600;
+
+  --spacing-margin-mobile: 24px;
+  --spacing-margin-desktop: 64px;
+  --spacing-element-gap: 24px;
+  --spacing-section-gap: 128px;
+  --spacing-gutter: 32px;
+
+  --container-max: 1280px;
+
+  --radius-xl: 0.75rem;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(76, 215, 246, 0.3);
+    color: var(--color-secondary);
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0b1326; }
+  ::-webkit-scrollbar-thumb { background: #2d3449; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #4cd7f6; }
+}
+
+@utility max-w-container {
+  max-width: 1280px;
+}
+
+@utility glass-surface {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+@utility glass-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(76, 215, 246, 0.3);
+  box-shadow: 0 0 30px rgba(3, 181, 211, 0.1);
+  transform: translateY(-4px);
+}
+
+@utility glow-button {
+  box-shadow: 0 0 0 rgba(76, 215, 246, 0);
+  transition: all 0.3s ease;
+}
+.glow-button:hover {
+  box-shadow: 0 0 20px rgba(76, 215, 246, 0.4);
+}
+
+@utility glow-sm {
+  box-shadow: 0 0 20px rgba(76, 215, 246, 0.3);
+}
+
+@utility tech-chip {
+  border: 1px solid rgba(173, 198, 255, 0.2);
+  background: rgba(11, 19, 38, 0.8);
+}
+
+@utility gradient-text {
+  background: linear-gradient(135deg, #adc6ff 0%, #4cd7f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@utility text-shadow-strong {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+@utility timeline-line {
+  background: linear-gradient(to bottom, transparent, #4cd7f6, transparent);
+}
+
+/* ---- Galaxy journey ---- */
+
+.planet-card {
+  position: relative;
+  width: min(340px, calc(100vw - 44px));
+  padding: 24px;
+  border-radius: 20px;
+  pointer-events: auto;
+  background: linear-gradient(165deg, rgba(27, 39, 70, 0.62), rgba(8, 14, 31, 0.55));
+  backdrop-filter: blur(18px) saturate(1.5);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 24px 70px -28px rgba(0, 0, 0, 0.85),
+    0 0 46px -10px color-mix(in srgb, var(--card-glow, #4cd7f6) 35%, transparent);
+  will-change: transform, opacity;
+}
+
+/* Tether from card toward its planet */
+.planet-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 1px;
+}
+.planet-card[data-side="right"]::after {
+  left: 100%;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--card-glow, #4cd7f6) 70%, transparent),
+    transparent
+  );
+}
+.planet-card[data-side="left"]::after {
+  right: 100%;
+  background: linear-gradient(
+    to left,
+    color-mix(in srgb, var(--card-glow, #4cd7f6) 70%, transparent),
+    transparent
+  );
+}
+@media (max-width: 767px) {
+  .planet-card::after {
+    display: none;
+  }
+}
+
+.planet-tag {
+  font-family: var(--font-jetbrains), var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(218, 226, 253, 0.72);
+}
+
+.journey-chevron {
+  animation: journey-drift 2.4s ease-in-out infinite;
+}
+@keyframes journey-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journey-chevron {
+    animation: none;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
