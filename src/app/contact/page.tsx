@@ -3,19 +3,39 @@
 import { useState } from "react";
 import { Icon } from "@/components/icon";
 
-export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/abdullahoth210@gmail.com";
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+export default function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
     setStatus("sending");
-    setTimeout(() => {
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          _subject: `Portfolio contact: ${data.subject || data.name}`,
+          _template: "table",
+        }),
+      });
+      if (!res.ok) throw new Error(`Send failed (${res.status})`);
       setStatus("sent");
-      setTimeout(() => {
-        setStatus("idle");
-        (e.target as HTMLFormElement).reset();
-      }, 2500);
-    }, 1200);
+      form.reset();
+      setTimeout(() => setStatus("idle"), 2500);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   const inputClasses =
@@ -104,6 +124,15 @@ export default function ContactPage() {
             <div className="glass-card p-5 sm:p-8 md:p-12 rounded-xl relative overflow-hidden">
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-secondary/5 blur-[100px] rounded-full" />
               <form onSubmit={onSubmit} className="relative z-10 space-y-6 md:space-y-8">
+                {/* Honeypot: hidden from humans, bots that fill it get rejected by FormSubmit */}
+                <input
+                  type="text"
+                  name="_honey"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                   <div>
                     <label htmlFor="name" className={labelClasses}>
@@ -164,7 +193,9 @@ export default function ContactPage() {
                     className={`w-full md:w-auto px-10 py-4 text-xs uppercase tracking-[0.1em] font-semibold font-[var(--font-jetbrains)] rounded-lg transition-all duration-300 flex items-center justify-center gap-3 active:scale-95 ${
                       status === "sent"
                         ? "bg-secondary-container text-on-secondary-container"
-                        : "bg-primary text-on-primary hover:shadow-[0_0_25px_rgba(76,215,246,0.4)]"
+                        : status === "error"
+                          ? "bg-error/15 text-error"
+                          : "bg-primary text-on-primary hover:shadow-[0_0_25px_rgba(76,215,246,0.4)]"
                     } ${status !== "idle" ? "opacity-80" : ""}`}
                   >
                     {status === "idle" && (
@@ -183,6 +214,12 @@ export default function ContactPage() {
                       <>
                         <Icon name="check_circle" className="text-[18px]" />
                         Transmitted Successfully
+                      </>
+                    )}
+                    {status === "error" && (
+                      <>
+                        <Icon name="error" className="text-[18px]" />
+                        Transmission Failed — Retry Shortly
                       </>
                     )}
                   </button>

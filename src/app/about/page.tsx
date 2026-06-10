@@ -42,7 +42,7 @@ const journey = [
   },
   {
     role: "Software Engineer",
-    meta: "Picook Solutions | 2022–Present",
+    meta: "Picook Solutions | 2022–2026",
     desc: "Built WordPress systems, full-stack web applications, and mobile products for client projects across multiple industries. Worked on API integrations, frontend implementation, backend services, and deployment workflows while maintaining delivery timelines.",
     quoteLabel: "// Achievement",
     quote:
@@ -268,12 +268,20 @@ export default function AboutPage() {
               practical engineering decisions.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <button className="px-8 py-4 bg-secondary text-on-secondary text-xs uppercase tracking-[0.1em] font-semibold font-[var(--font-jetbrains)] rounded-xl hover:glow-sm transition-all duration-300">
+              <a
+                href="https://drive.google.com/file/d/1Ry4B7P2Fbh0wayY0T2lw1-3AevRy1H-R/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-secondary text-on-secondary text-xs uppercase tracking-[0.1em] font-semibold font-[var(--font-jetbrains)] rounded-xl hover:glow-sm transition-all duration-300 inline-block text-center"
+              >
                 Download Résumé
-              </button>
-              <button className="px-8 py-4 border border-secondary text-secondary text-xs uppercase tracking-[0.1em] font-semibold font-[var(--font-jetbrains)] rounded-xl hover:bg-secondary/5 transition-all duration-300">
+              </a>
+              <a
+                href="/contact"
+                className="px-8 py-4 border border-secondary text-secondary text-xs uppercase tracking-[0.1em] font-semibold font-[var(--font-jetbrains)] rounded-xl hover:bg-secondary/5 transition-all duration-300 inline-block text-center"
+              >
                 Schedule a Consultation
-              </button>
+              </a>
             </div>
           </div>
         </section>

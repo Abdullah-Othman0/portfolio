@@ -14,6 +14,14 @@ export function SiteFooter() {
         </div>
         <div className="flex gap-8 font-[var(--font-jetbrains)]">
           <a
+            href="https://drive.google.com/file/d/1Ry4B7P2Fbh0wayY0T2lw1-3AevRy1H-R/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs uppercase tracking-[0.1em] font-semibold text-on-tertiary-fixed-variant hover:text-secondary opacity-80 hover:opacity-100 transition-colors"
+          >
+            CV
+          </a>
+          <a
             href="https://github.com/Abdullah-Othman0"
             target="_blank"
             rel="noopener noreferrer"
