@@ -278,8 +278,10 @@ export function ProjectPlanetMesh({
   const side = Math.sign(planet.position[0]);
   const visScale = narrow ? 0.78 : 1;
   const effRadius = planet.radius * visScale;
+  // Narrow: cancel the planet's lateral offset so the card never clips the
+  // screen edge; the camera's opposite-side weave keeps it slightly off-center.
   const anchor: [number, number, number] = narrow
-    ? [0, -(effRadius + 1.45), 0]
+    ? [-planet.position[0] * 0.32, -(effRadius + 1.45), 0]
     : [-side * (planet.radius + 1.15), 0.15, 0];
 
   useFrame((state, delta) => {
