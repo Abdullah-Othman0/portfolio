@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Icon } from "@/components/icon";
+import BookingModal from "@/components/booking/booking-modal";
+import MeetingForm from "@/components/booking/meeting-form";
 
 const CONTACT_ENDPOINT = "https://formsubmit.co/ajax/abdullahoth210@gmail.com";
 
@@ -9,6 +11,7 @@ export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  const [bookingOpen, setBookingOpen] = useState(false);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -226,6 +229,21 @@ export default function ContactPage() {
                 </div>
               </form>
             </div>
+
+            <div className="mt-6 border-t border-white/10 pt-6">
+              <button
+                type="button"
+                onClick={() => setBookingOpen(true)}
+                className="flex w-full items-center justify-center gap-3 rounded-lg bg-[#4cd7f6]/10 px-10 py-4 text-xs font-semibold uppercase tracking-[0.1em] font-mono text-[#4cd7f6] transition-all duration-300 hover:bg-[#4cd7f6]/20 hover:shadow-[0_0_25px_rgba(76,215,246,0.3)] active:scale-95"
+              >
+                <Icon name="calendar_month" className="text-[18px]" />
+                Book a Meeting
+              </button>
+            </div>
+
+            <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)}>
+              <MeetingForm isOpen={bookingOpen} onSuccess={() => setBookingOpen(false)} />
+            </BookingModal>
 
             <div className="mt-8 flex items-center justify-between px-4 flex-wrap gap-4">
               <div className="flex items-center gap-3 text-on-tertiary-fixed-variant">
